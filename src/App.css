@@ -31,12 +31,38 @@
   margin: 10px
 }
 
-
-
 .img_text {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   
+}
+
+.imgD00 {
+  background-image: url('https://cdnweb01.wikitree.co.kr/webdata/editor/202207/08/img_20220708122356_459542f9.webp');
+  background-position: center;
+  background-size: cover;
+  width: 400px;
+  height: 400px;
+  border-radius: 10px;
+  margin: 10px
+}
+.imgD01 {
+  background-image: url('https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/407/b0c734637606d02af1cad468646bb20f_res.jpeg');
+  background-position: center;
+  background-size: cover;
+  width: 400px;
+  height: 400px;
+  border-radius: 10px;
+  margin: 10px
+}
+.imgD02 {
+  background-image: url('https://cdn.findb.co.kr/news/photo/202207/628_908_138.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 400px;
+  height: 400px;
+  border-radius: 10px;
+  margin: 10px
 }

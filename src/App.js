@@ -5,10 +5,10 @@ import { BrowserRouter, Routes, Route, useNavigate, Link, Navigate } from 'react
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import jsonData from './data';
+import Detail from './Detail';
 
 function App() {
-// let navigate = useNavigate();
-
+  
 let[jsonData1] = useState(jsonData)
 console.log(jsonData1)
 
@@ -44,7 +44,7 @@ function json() {
       
            <Route path='/' element={<Main jsonData1={jsonData1}/>} />
 
-           <Route path={'/detail/:id'} element={<div>메롱메롱</div>} />
+           <Route path={'/detail/:id'} element={<Detail jsonData1={jsonData1}/>} />
 
            <Route path='/cart' element={<div>카트입니다</div>} />
 
@@ -58,7 +58,7 @@ function json() {
 
 function Main({jsonData1}){
 
-  
+  const navigate = useNavigate();
 
   return(
     <>
@@ -73,7 +73,7 @@ function Main({jsonData1}){
         {
           jsonData1.map((val,i)=>
             <Col key={i} style={{display:"flex"}} onClick={()=>{
-              Navigate()
+              navigate('/detail/'+i)
             }}>
               <div className={'img0'+i}></div>
               <div className='img_text'>
