@@ -1,38 +1,42 @@
 .App {
   text-align: center;
+  min-width: 400px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.img00 {
+  background-image: url('https://cdnweb01.wikitree.co.kr/webdata/editor/202207/08/img_20220708122356_459542f9.webp');
+  background-position: center;
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  margin: 10px
+}
+.img01 {
+  background-image: url('https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/407/b0c734637606d02af1cad468646bb20f_res.jpeg');
+  background-position: center;
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  margin: 10px
+}
+.img02 {
+  background-image: url('https://cdn.findb.co.kr/news/photo/202207/628_908_138.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  margin: 10px
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.img_text {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  
 }
