@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import jsonData from './data';
 import Detail from './Detail';
+import Cart from './Cart';
 
 function App() {
   
@@ -46,7 +47,7 @@ function json() {
 
            <Route path={'/detail/:id'} element={<Detail jsonData1={jsonData1}/>} />
 
-           <Route path='/cart' element={<div>카트입니다</div>} />
+           <Route path='/cart' element={<Cart/>} />
 
     </Routes>
       
