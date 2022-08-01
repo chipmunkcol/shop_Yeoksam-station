@@ -1,9 +1,16 @@
 import { Routes, Route, Link, useNavigate, Outlet, Nav, useParams, Navigate } from 'react-router-dom';
 import { Button, Dropdown, DropdownButton, Form, InputGroup } from 'react-bootstrap'
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addCart, addCount } from './store';
 
 
-function Detail({jsonData1}) {
+function Detail() {
+
+const dispatch = useDispatch()
+
+const state = useSelector((state)=> state )
+console.log(state.data)
 
 let params = useParams().id;
 // console.log(params)
@@ -17,9 +24,9 @@ const navigate = useNavigate();
         <div style={{display:'flex', justifyContent:'center'}}>
             <div className={'imgD0'+params}></div>
             <div className='img_text'>
-                <h1>{jsonData1[params].title}</h1>
-                <h2>{jsonData1[params].price}원</h2>
-                <h5>{jsonData1[params].content}</h5>
+                <h1>{state.data[params].title}</h1>
+                <h2>{state.data[params].price}원</h2>
+                <h5>{state.data[params].content}</h5>
                 
                 <select style={{marginTop:'20px', textAlign:'center'}} name='number' onChange={(e)=> {setNumber(e.target.value)}}>
                     <option value='none'>= 수량 =</option>
@@ -36,11 +43,12 @@ const navigate = useNavigate();
                 </select>
                  
                 <Button style={{marginTop:'20px'}} variant="warning" onClick={()=>{
+                  dispatch(addCart(state.data[params]))
                   navigate('/cart')  
                 }}>주문하기</Button>
             </div>
         </div>
-        <p>{jsonData1[params].detail}</p>
+        <p>{state.data[params].detail}</p>
         </>
     );
 }
