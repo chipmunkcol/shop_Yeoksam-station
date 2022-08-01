@@ -9,13 +9,16 @@ function Detail() {
 
 const dispatch = useDispatch()
 
-const state = useSelector((state)=> state )
-console.log(state.data)
+
+let [state, setState] = useState(useSelector((state)=> state ));
+console.log(state)
 
 let params = useParams().id;
 // console.log(params)
 
 let [number,setNumber] = useState(0);
+console.log(number)
+
 const navigate = useNavigate();
 
 
@@ -28,7 +31,7 @@ const navigate = useNavigate();
                 <h2>{state.data[params].price}원</h2>
                 <h5>{state.data[params].content}</h5>
                 
-                <select style={{marginTop:'20px', textAlign:'center'}} name='number' onChange={(e)=> {setNumber(e.target.value)}}>
+                <select style={{marginTop:'20px', textAlign:'center'}} name='number' onChange={(e)=> {setNumber(Number(e.target.value))}}>
                     <option value='none'>= 수량 =</option>
                     <option value='1'>1</option>
                     <option value='2'>2</option>
@@ -43,8 +46,14 @@ const navigate = useNavigate();
                 </select>
                  
                 <Button style={{marginTop:'20px'}} variant="warning" onClick={()=>{
-                  dispatch(addCart(state.data[params]))
-                  navigate('/cart')  
+                  if(number === 0){
+                    alert('수량을 선택해주세요!')
+                  } else {
+                    let copy = {...state.data[params], count: number};
+                    console.log(copy)
+                    dispatch(addCart(copy))
+                    navigate('/cart')  
+                  }
                 }}>주문하기</Button>
             </div>
         </div>
