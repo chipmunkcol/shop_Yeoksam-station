@@ -23,9 +23,9 @@ const cart = createSlice({
     reducers: {
         addCart(state, action) {
         let a = state.findIndex((val)=>val.id === action.payload.id)  
-            a === -1 ? state.push(action.payload) : state[a].count += 1 //findIndex에서 id로 장바구니 검색해서 있으면 수량+1, 없으면 해당상품 추가
-            
+            a === -1 ? state.push(action.payload) : state[a].count += 1 //findIndex에서 id로 장바구니 검색해서 있으면 수량+1, 없으면 해당상품 추가           
         },
+
         removeCart(state, action) {
         let a = state.findIndex((val)=>val.id === action.payload.id)
             state.splice(a,1)
@@ -35,6 +35,7 @@ const cart = createSlice({
         let a = state.findIndex((val)=>val.id === action.payload.id)  
             state[a].count += 1
         },
+        
         removeCount(state, action) {
         let a = state.findIndex((val)=>val.id === action.payload.id) 
             if(state[a].count !== 1){

@@ -1,21 +1,30 @@
 import { Col, Row, Container, Nav, Navbar } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route, useNavigate, Link, Navigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useParams } from 'react';
 import { useSelector } from 'react-redux';
 
 
 function Main(){
 
+useEffect(()=>{
+  if(localStorage.getItem('watched') === null) {
+    localStorage.setItem('watched', JSON.stringify( [] ))
+  }
+
+}, [])
+
+// let [watched, setWatched] = useState([])
+
 const navigate = useNavigate();
 
 const state = useSelector((state)=> state)
-console.log(state.data);
+// console.log(state.data);
   
     return(
       <>
   
-      <h1>기러기역삼역토마토 홈쇼핑</h1>
-      <img style={{width:'40%'}} src={require('./img/80179016571916020.jpg')} />
+      <h1>스위스역삼역토마토 홈쇼핑</h1>
+      <img style={{width:'40%', borderRadius:'200px'}} src={require('./img/80179016571916020.jpg')} />
       <p>어머, 이건 사야해!</p>
   
   
@@ -24,6 +33,11 @@ console.log(state.data);
           {
             state.data.map((val,i)=>
               <Col key={i} style={{display:"flex"}} onClick={()=>{
+                // let copy = [...watched]
+                // copy.push(val)
+                // setWatched(copy)
+                // localStorage.setItem('watched',JSON.stringify( watched ))
+
                 navigate('/detail/'+i)
               }}>
                 <div className={'img0'+i}></div>

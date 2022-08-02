@@ -13,6 +13,8 @@ function App() {
   
 const navigate = useNavigate()
 
+
+
 useEffect(()=>{
   
 },[]) 
@@ -30,7 +32,6 @@ function json() {
 
   return (
     <div className="App">
-     <h1>Hello, react</h1>
   
      <Navbar bg="dark" variant="dark">
         <Container>

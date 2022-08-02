@@ -7,7 +7,7 @@ function Cart(){
 const dispatch = useDispatch()
 
 const state = useSelector((state)=> state )
-console.log(state.cart)
+// console.log(state.cart)
 
     return(
         <>
