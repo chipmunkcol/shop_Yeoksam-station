@@ -21,14 +21,15 @@ let [number,setNumber] = useState(0);
 const navigate = useNavigate();
  
 useEffect(()=>{
+  
 
   // localStorage.setItem('watched', JSON.stringify([ ]))
   const 꺼낸거 = JSON.parse(localStorage.getItem('watched'))
 
-  if (꺼낸거.indexOf(state.data[params].id) === -1) {
-    꺼낸거.push(state.data[params].id)
-    localStorage.setItem('watched', JSON.stringify( 꺼낸거 ))
-  };
+  // if (꺼낸거.indexOf(state.data[params].id) === -1) {};
+  꺼낸거.push(state.data[params].id)
+  localStorage.setItem('watched', JSON.stringify( 꺼낸거 ))
+  
   
 }, [])
 
@@ -60,7 +61,7 @@ useEffect(()=>{
                   if(number === 0){                       
                     alert('수량을 선택해주세요!')
                   } else {
-                    let copy = {...state.data[params], count: number};              //사용하려는 자료가 '객체'인 경우 전개연산을 잘 이용하자!
+                    let copy = {...state.data[params], count: number}; 
                     dispatch(addCart(copy))
 
                     // let copy2 = {...state};
